@@ -62,6 +62,13 @@ def main(params):
         except StopIteration:
             print("Finished ingesting data into the postgres database")
             break
+
+    # hardcode the part to download the zones lookup file
+    url_zone =  "https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv"
+
+    os.system(f"wget {url_zone} -O zones.csv")
+    df_zones= pd.read_csv("zones.csv")
+    df_zones.to_sql(name="zones", con=engine, if_exists="repalce")
         
 
 if __name__ =='__main__':
