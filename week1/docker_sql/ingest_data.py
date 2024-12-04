@@ -68,7 +68,8 @@ def main(params):
 
     os.system(f"wget {url_zone} -O zones.csv")
     df_zones= pd.read_csv("zones.csv")
-    df_zones.to_sql(name="zones", con=engine, if_exists="repalce")
+    df_zones.to_sql(name="zones", con=engine, if_exists="replace")
+    print("df_zones to sql done")
         
 
 if __name__ =='__main__':

@@ -1,7 +1,7 @@
 services:
   pgdatabase: # this will also be the name of the host in pgadmin
     image: postgres:13
-    environment: 
+    environment:  # this are the variables to enter in pgadmin so it connects to postgres
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=ny_taxi
