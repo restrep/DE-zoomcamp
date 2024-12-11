@@ -35,7 +35,11 @@ Ensure you have the following installed:
     ```bash
    docker run -it  --network=docker_sql_default ingest-script  --user=root  --password=root  --host=pgdatabase  --port=5432  --db=ny_taxi --table_name=yellow_taxi_trips --url=${URL}
    ```
-    Note that the network name comes from the directory where the `docker-compose.yml` file is.
+    Note that the network name comes from the directory where the `docker-compose.yml` file is and you need to set the variable:
+    ```
+    URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+    ```
+
 ---
 
 ## Resetting the Project
