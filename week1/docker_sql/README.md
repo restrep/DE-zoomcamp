@@ -33,16 +33,7 @@ Ensure you have the following installed:
    ```
    Here we have tagged the image as ingest-script. The script ask for several variables when you run it:
     ```bash
-   docker run -it \
-  --network=docker_sql_default \
-  ingest-script \
-    --user=root \
-    --password=root \
-    --host=pgdatabase \
-    --port=5432 \
-    --db=ny_taxi \
-    --table_name=yellow_taxi_trips \
-    --url=${URL}
+   docker run -it  --network=docker_sql_default ingest-script  --user=root  --password=root  --host=pgdatabase  --port=5432  --db=ny_taxi --table_name=yellow_taxi_trips --url=${URL}
    ```
     Note that the network name comes from the directory where the `docker-compose.yml` file is.
 ---
