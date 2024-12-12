@@ -1,0 +1,9 @@
+# macOS system files
+.DS_Store
+
+
+# Jupyter Notebook
+*.ipynb_checkpoints/
+
+# Specific files
+week1/terraform_gcp/keys/my-cred.json
