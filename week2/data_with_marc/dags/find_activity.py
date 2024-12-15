@@ -20,7 +20,7 @@ def find_activity():
     @task
     def write_activity_to_file(response):
         filepath = Variable.get("activity_file")
-        with open(filepath, "a") as f:
+        with open(filepath, "w") as f:
             f.write(f"Today you will: {response["activity"]}]\r\n")
         return filepath
 
@@ -30,7 +30,7 @@ def find_activity():
             print(f.read())
 
     response = get_activity()
-    filepath = write_activity_to_file(respone)
+    filepath = write_activity_to_file(response)
     read_activity_from_file(filepath)
 
 find_activity()
