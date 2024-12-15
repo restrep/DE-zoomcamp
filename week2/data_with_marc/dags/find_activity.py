@@ -1,4 +1,5 @@
 from airflow.decorators import dag, task 
+from airflow.models import Variable
 from pendulum import datetime
 import requests
 
@@ -17,11 +18,19 @@ def find_activity():
         return r.json()
 
     @task
-    def write_ctivity_to_file(response):
+    def write_activity_to_file(response):
         filepath = Variable.get("activity_file")
         with open(filepath, "a") as f:
             f.write(f"Today you will: {response["activity"]}]\r\n")
+        return filepath
 
-    get_activity()
+    @task 
+    def read_activity_from_file(filepath):
+        with open(filepath,"r") as f:
+            print(f.read())
+
+    response = get_activity()
+    filepath = write_activity_to_file(respone)
+    read_activity_from_file(filepath)
 
 find_activity()
