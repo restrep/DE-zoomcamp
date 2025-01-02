@@ -2,6 +2,7 @@
 # This file is similar to the previoues one postgres_taxi_video
 # the new things are the triggers, removal of some inputs and a limit in the 
 # concurrency. This limit is so that there is only one excecution at a time due to only having one staging table.
+# the backfills were created manually under the triggers tab
 
 id: 02_postgres_taxi_backfills_video
 namespace: zoomcamp
